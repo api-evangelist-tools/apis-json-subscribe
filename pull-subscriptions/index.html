@@ -36,13 +36,13 @@ title: Pull Subscriptions
         $folder_name = $folder_name.toLowerCase();
         $apis_json_path = $folder_name + '/apis.json';
 
-        console.log("Path: " + $apis_json_path);
-
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
           //console.log($oAuth_Token);
           var github = new Github({token: $oAuth_Token,auth: "oauth"});
           var repo = github.getRepo($org,$repo);
+
+          console.log("Path: " + $apis_json_path);
 
           repo.getTree('master?recursive=true', function(err, tree) {
 
