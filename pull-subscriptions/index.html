@@ -46,6 +46,8 @@ title: Pull Subscriptions
           $createfolder = 1;
           repo.getTree('master?recursive=true', function(err, tree) {
 
+            $treeLength = tree.length;
+            console.log("New: " + $treeLength);
             $.each(tree, function(treeKey, treeValue) {
 
               $path = treeValue['path'];
