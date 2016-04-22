@@ -84,9 +84,9 @@ title: Pull Subscriptions
                   $apis = $apisjson2['apis'];
                   $.each($apis, function($apiKey,$apiValue) {
 
-                      $.each($$apiValue['properties'], function($apiPropertyKey,$apiPropertyValue) {
+                      $.each($apiValue['properties'], function($apiPropertyKey,$apiPropertyValue) {
 
-                          if($$apiPropertyValue['type']=='x-openapi-spec-json')
+                          if($apiPropertyValue['type']=='x-openapi-spec-json')
                             {
                             $fileArray = $apiPropertyValue['url'].split('/');
                             $file_path = $fileArray[$fileArray.length-1];
