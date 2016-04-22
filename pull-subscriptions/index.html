@@ -64,7 +64,7 @@ title: Pull Subscriptions
                 }
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    //repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 catch(err) {
                     console.log("error!");
