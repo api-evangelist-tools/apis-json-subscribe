@@ -101,9 +101,10 @@ title: Pull Subscriptions
                             //console.log($url);
                             //console.log($write_spec_path);
                             //console.log($file_path);
-
+                            console.log("pulling: " + $url)
                             var pullIndividualSpec = $.get($url, function ($openapispec) {
                               $openapispec_content = JSON.stringify($openapispec, null, 4);
+                              console.log("writing: " + $write_spec_path)
                               repo.write('master',$write_spec_path,$openapispec_content, 'Subscription Pull', options, function(err) {});
                               });
 
