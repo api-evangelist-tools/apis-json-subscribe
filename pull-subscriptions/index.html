@@ -75,7 +75,7 @@ title: Pull Subscriptions
                 $apis_json_path = $folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
                 catch(err) {
                     console.log("error!");
@@ -104,7 +104,7 @@ title: Pull Subscriptions
                                   $file_path = $fileArray[$fileArray.length-1];
                                   $write_spec_path = $folder_name + "/" + $file_path;
                                   try {
-                                      repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
+                                      repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
                                   }
                                   catch(err) {
                                       console.log("error!");
