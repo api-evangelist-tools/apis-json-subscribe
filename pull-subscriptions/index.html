@@ -56,13 +56,9 @@ title: Pull Subscriptions
 
               $path = treeValue['path'];
               $sha = treeValue['sha'];
-              //console.log("Path4: " + $apis_json_path + ' == ' + $path);
-              if($apis_json_path == $path)
-                {
-                console.log($apis_json_path + ' already exists!');
-                $createfolder = 0;
-                }
-              console.log($createfolder + ' && ' + $treeCount + ' == ' + $treeLength);
+
+              if($apis_json_path == $path){ $createfolder = 0; }
+
               if($createfolder == 1 && $treeCount == $treeLength)
                 {
                 var options = {
@@ -72,9 +68,11 @@ title: Pull Subscriptions
                 }
 
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
-                //console.log($apis_json_path);
                 repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
-
+                }
+              else if($createfolder == 0 && $treeCount == $treeLength)
+                {
+                console.log("Write to new!");  
                 }
                 $treeCount++;
               });
