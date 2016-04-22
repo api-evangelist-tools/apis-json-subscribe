@@ -91,7 +91,14 @@ title: Pull Subscriptions
 
                           $type = $apiPropertyValue['type'];
                           $url = $apiPropertyValue['url'];
-                          console.log($type + ' - ' + $url);
+                          if($type=='x-openapi-spec-json')
+                            {
+                            $fileArray = $url.split('/');
+                            $file_path = $fileArray[$fileArray.length];
+                            console.log($type);
+                            console.log($url);
+                            console.log($file_path);
+                            }
 
                         });
 
