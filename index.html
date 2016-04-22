@@ -1,354 +1,149 @@
 ---
 layout: page
-title: Create Your First APIs.json File
+title: Pull Subscriptions
 ---
 
-<h3>Create Your First APIs.json File</h3>
-<p>This is a form to walk you through building your first <a href="http://apis.json.org/" target="_blank">APIs.json file</a> index for your API, providing machine readable access to your API, as and the supporting platform operations. Just fill out the fields below, and click on the "Generate My APIs.json" button to generate the APIs.json.</p>
-<p>Once done, you can copy / paste the APIs.json file and publish into the root of your website, and developer portal. This allows <a href="http://apis.io/">search engines like APIs.io</a> index your API, while still allowing you to control what goes into each APIs index, including documentation, pricing, terms of service, an dother critical aspecs of API operations.
-<style>
-    input[type=text] {
-     width: 100%;
-     padding: 15px 8px 15px 8px;
-    }
-    input[type=email] {
-     width: 100%;
-     padding: 15px 8px 15px 8px;
-    }
-    textarea {
-        width: 100%;
-        height: 150px;
-    }
-</style>
+<script type="text/javascript">
 
-<form method="get" action="add.php">
-<h4>Company Overview</h4>
-  <div class="form-group">
-    <label for="name">What is the name of your company, organization, or operations?:</label>
-    <input type="text" class="form-control" id="name" name="name" placeholder="Name of your API">
-  </div>
-  <div class="form-group">
-    <label for="description">Please provide a short description of your company, organization, or operations -- keep to less than 500 characters.</label>
-    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="image">What is the url to your logo or image?</label>
-    <input type="text" class="form-control" id="image" name="image" placeholder="http://example.com/logo.png">
-  </div>
-  <div class="form-group">
-    <label for="tags">What are some key words and phrases that description your company, organization, or operations? Separate with commas.</label>
-    <input type="text" class="form-control" id="tags" name="tags" placeholder="key words, key phrases, tags">
-  </div>
-  <div class="form-group">
-    <label for="tax_status">What is the url for your company, organization, or operations?</label>
-    <input type="text" class="form-control" id="url" name="url" placeholder="http://example.com/apis.json">
-  </div>
-  <h4>API Overview</h4>
-  <div class="form-group">
-    <label for="api-name">What is the name of your API?:</label>
-    <input type="text" class="form-control" id="api-name" name="api-name" placeholder="Name of your API">
-  </div>
-  <div class="form-group">
-    <label for="api-description">Please provide a short description of your API, and what it does -- keep to less than 500 characters.</label>
-    <textarea class="form-control" id="api-description" name="api-description" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="api-image">Is there a logo, image or icon that represents your API?</label>
-    <input type="text" class="form-control" id="api-image" name="api-image" placeholder="http://example.com/logo.png">
-  </div>
-  <div class="form-group">
-    <label for="api-tags">What are some key words and phrases that description your API? Separate with commas.</label>
-    <input type="text" class="form-control" id="api-tags" name="api-tags" placeholder="key words, key phrases, tags">
-  </div>
-  <h4>API Details</h4>
-  <div class="form-group">
-    <label for="api-base-url">What is the base url for the API?:</label>
-    <input type="text" class="form-control" id="api-base-url" name="api-base-url" placeholder="http://api.example.com">
-  </div>
-  <div class="form-group">
-    <label for="api-openapi-spec-url">Is there a URL for the OpenAPI Specification for the API?:</label>
-    <input type="text" class="form-control" id="api-openapi-spec-url" name="api-openapi-spec-url" placeholder="http://example.com/openapi-spec.json">
-  </div>
-  <div class="form-group">
-    <label for="api-api-blueprint-url">Is there a URL for the API Blueprint for the API?:</label>
-    <input type="text" class="form-control" id="api-api-blueprint-url" name="api-api-blueprint-url" placeholder="http://example.com/api-blueprint.apib">
-  </div>
-  <div class="form-group">
-    <label for="api-postman-url">Is there a URL for the Postman Collection URL for the API?:</label>
-    <input type="text" class="form-control" id="api-postman-url" name="api-postman-url" placeholder="http://example.com/postman.json">
-  </div>
-  <h4>API Operations</h4>
-  <div class="form-group">
-    <label for="api-developer-portal">Where is the developer portal for the API?:</label>
-    <input type="text" class="form-control" id="api-developer-portal" name="api-developer-portal" placeholder="http://developer.example.com">
-  </div>
-  <div class="form-group">
-    <label for="api-registration">Where do you register for an API?:</label>
-    <input type="text" class="form-control" id="api-registration" name="api-registration" placeholder="http://example.com/registration/">
-  </div>
-  <div class="form-group">
-    <label for="api-documentation">Where is the documentation for an API?:</label>
-    <input type="text" class="form-control" id="api-documentation" name="api-documentation" placeholder="http://example.com/documentation/">
-  </div>
-  <div class="form-group">
-    <label for="api-pricing">Where is the pricing and plans for an API?:</label>
-    <input type="text" class="form-control" id="api-pricing" name="api-pricing" placeholder="http://example.com/pricing/">
-  </div>
-  <div class="form-group">
-    <label for="api-terms-of-service">Where is the terms of service for an API?:</label>
-    <input type="text" class="form-control" id="api-terms-of-service" name="api-terms-of-service" placeholder="http://example.com/terms-of-service/">
-  </div>
-  <div class="form-group">
-    <label for="api-github">Is there a Github account for an API?:</label>
-    <input type="text" class="form-control" id="api-github" name="api-github" placeholder="https://github.com/yourapi/">
-  </div>
-  <div class="form-group">
-    <label for="api-twitter">Is there a Twitter account for an API?:</label>
-    <input type="text" class="form-control" id="api-twitter" name="api-twitter" placeholder="https://twitter.com/yourapi/">
-  </div>
-  <h4>Contact Information</h4>
-  <div class="form-group">
-    <label for="contact-name">What is the name of point of contact for the API?:</label>
-    <input type="text" class="form-control" id="contact-name" name="contact-name" placeholder="Name">
-  </div>
-  <div class="form-group">
-    <label for="contact-twitter">What is the Twitter handle for point of contact for the API?:</label>
-    <input type="text" class="form-control" id="contact-twitter" name="contact-twitter" placeholder="twitterhandle">
-  </div>
-  <div class="form-group">
-    <label for="contact-email">What is the email of the point of contact for the API?:</label>
-    <input type="email" class="form-control" id="contact-email" name="contact-email" placeholder="name@example.com">
-  </div>
-</form>
-<button onclick="BuildAPIsJSON();" type="submit" class="btn btn-default" name="add-organization" value="1">Generate My APIs.json</button>
-<br />
+    if(getUrlVar('token'))
+      {
+        var $oAuth_Token = getUrlVar('token');
+      }
 
-<script type="text/jscript">
+    var $org = 'api-evangelist-tools';
+    var $repo = 'apis-json-subscribe';
 
-//
-// This is meant to be a very verbose, hackable script that you can change and make yours.
-// Do what you need to make it create exactly the APIs.json file you will need for your platform.
-//
+    var $masterFeed = [];
 
-function BuildAPIsJSON()
-    {
-    $MasterAPISJSON = {};
+    $apis_json_url = 'http://apis.json.subscribe.apievangelist.com/apis.json';
 
-    $apisJSONName = document.getElementById("name").value;
-    $apisJSONDescription = document.getElementById("description").value;
-    $apisJSONImage = document.getElementById("image").value;
-    $apisJSONTags = document.getElementById("tags").value;
-    $apisJSONTagArray = $apisJSONTags.split(',');
+    var pullMaster = $.get($apis_json_url, function ($apisjson) {
 
-    $apisJSONUrl = document.getElementById("url").value;
+      $subscription_name = $apisjson['name'];
+      $subscription_description = $apisjson['description'];
+      $subscription_include = $apisjson['include'];
 
-    $apisJSONAPIName = document.getElementById("api-name").value;
-    $apisJSONAPIDescription = document.getElementById("api-description").value;
-    $apisJSONAPIImage = document.getElementById("api-image").value;
-    $apisJSONAPITags = document.getElementById("api-tags").value;
-    $apisJSONAPITagArray = $apisJSONAPITags.split(',');
+      //console.log($subscription_name);
 
-    $apisJSONAPIOpenAPIBaseURL = document.getElementById("api-base-url").value;
-    $apisJSONAPIOpenAPISpecURL = document.getElementById("api-openapi-spec-url").value;
-    $apisJSONAPIAPIBlueprintURL = document.getElementById("api-api-blueprint-url").value;
-    $apisJSONAPIPostmanURL = document.getElementById("api-postman-url").value;
+      $.each($subscription_include, function($key,$value) {
+        //console.log($value);
+        $entry_name = $value['name'];
+        $entry_url = $value['url'];
 
-    $apisJSONAPIPortalURL = document.getElementById("api-developer-portal").value;
-    $apisJSONAPIRegistrationURL = document.getElementById("api-registration").value;
-    $apisJSONAPIDocumentationURL = document.getElementById("api-documentation").value;
-    $apisJSONAPIPricingURL = document.getElementById("api-pricing").value;
-    $apisJSONAPITermsOfServiceURL = document.getElementById("api-terms-of-service").value;
-    $apisJSONAPIGithubURL = document.getElementById("api-github").value;
-    $apisJSONAPITwitterURL = document.getElementById("api-twitter").value;
+        //console.log("Entry: " + $entry_name);
 
-    $apisJSONContactName = document.getElementById("contact-name").value;
-    $apisJSONContactTwitter = document.getElementById("contact-twitter").value;
-    $apisJSONContactEmail = document.getElementById("contact-email").value;
+        var $folder_name = $entry_name.split(' ').join('_');
+        var $folder_name = $folder_name.toLowerCase();
+        var $slug = $folder_name;
+        var $apis_json_path = $folder_name + '/apis.json';
 
-    $MasterAPISJSON['name'] = $apisJSONName;
+        $html = '<p style="padding-top: 10px;"><strong>' + $entry_name + '</strong></p>';
+        $('#process-subscriptions').append($html);
+        $html = '<ul id="' + $slug + '"></ul>';
+        $('#process-subscriptions').append($html);
 
-    // description
-    if($apisJSONDescription!='')
-        {
-        $MasterAPISJSON['description'] = $apisJSONDescription;
-        }
+        var pullSub = $.get($entry_url, function ($apisjson2) {
 
-    // image
-    if($apisJSONImage!='')
-        {
-        $MasterAPISJSON['image'] = $apisJSONImage;
-        }
+          //console.log($oAuth_Token);
+          var github = new Github({token: $oAuth_Token,auth: "oauth"});
+          var repo = github.getRepo($org,$repo);
 
-    // tags
-    if($apisJSONTags!='')
-        {
-        $MasterAPISJSON['tags'] = {};
-        $MasterAPISJSON['tags'] = $apisJSONTagArray;
-        }
+          repo.getTree('master?recursive=true', function(err, tree) {
 
-    $MasterAPISJSON['url'] = $apisJSONUrl;
+            $treeLength = tree.length;
+            $treeCount = 1;
+            $createfolder = 1;
+            $pullapis = 0;
+            $.each(tree, function(treeKey, treeValue) {
 
-    var date = new Date();
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+              $path = treeValue['path'];
+              $sha = treeValue['sha'];
 
-    // Set the dates
-    if(monthIndex<10){ monthIndex = '0' + monthIndex; }
-    $created_date = year  + '-' + monthIndex + '-' + day;
-    $MasterAPISJSON['created'] = $created_date;
-    $MasterAPISJSON['modified'] = $created_date;
+              if($apis_json_path == $path){ $createfolder = 0; }
 
-    $MasterAPISJSON['specificationVersion'] = '0.14';
+              if($createfolder == 1 && $treeCount == $treeLength)
+                {
+                var options = {
+                  author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                  committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                  encode: true
+                }
+                $apisjson2_content = JSON.stringify($apisjson2, null, 4);
+                try {
+                    $html = '<li><strong>Writing to</strong> /' + $apis_json_path + "...</li>";
+                    $('#'+$slug).append($html);
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                }
+                catch(err) {
+                    console.log("error!");
+                }
+                $createfolder = 1;
+                $pullapis = 1;
+                }
+              else if($createfolder == 0 && $treeCount == $treeLength)
+                {
+                d = new Date();
+                $date_folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
+                $folder_name = $folder_name + '/' + $date_folder;
+                $apis_json_path = $folder_name + '/apis.json';
+                $apisjson2_content = JSON.stringify($apisjson2, null, 4);
+                try {
+                    $html = '<li><strong>Writing to</strong> /' + $apis_json_path + "...</li>";
+                    $('#'+$slug).append($html);
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
+                }
+                catch(err) {
+                    console.log("error!");
+                }
+                $createfolder = 1;
+                $pullapis = 1;
+                }
 
-    $MasterAPISJSON['apis'] = [];
+                if($pullapis == 1)
+                  {
+                  $.each($apisjson2['apis'], function($apiKey,$apiValue) {
 
-    // Build a contact array
-    $ContactArray = {};
-    $ContactArray['FN'] = $apisJSONAPIName;
-    $ContactArray['X-twitter'] = $apisJSONAPIName;
-    $ContactArray['email'] = $apisJSONAPIName;
+                      $.each($apiValue['properties'], function($apiPropertyKey,$apiPropertyValue) {
 
-    $APIArray = {};
-    $APIArray['name'] = $apisJSONAPIName;
-
-    // API description
-    if($apisJSONAPIDescription!='')
-        {
-        $APIArray['description'] = $apisJSONAPIDescription;
-        }
-
-    $APIArray['image'] = $apisJSONAPIImage;
-    $APIArray['humanURL'] = $apisJSONAPIPortalURL;
-    $APIArray['baseURL'] = $apisJSONAPIOpenAPIBaseURL;
-
-    // API Tags
-    if($apisJSONAPITagArray!='')
-        {
-        $APIArray['tags'] = $apisJSONAPITagArray;
-        }
-
-    $APIArray['properties'] = [];
-
-    // OpenAPI Spec
-    if($apisJSONAPIOpenAPISpecURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-openapi-spec";
-        $APIPropertyArray['url'] = $apisJSONAPIOpenAPISpecURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // API Blueprint
-    if($apisJSONAPIAPIBlueprintURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-api-blueprint";
-        $APIPropertyArray['url'] = $apisJSONAPIAPIBlueprintURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Postman Collection
-    if($apisJSONAPIPostmanURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-postman-collection";
-        $APIPropertyArray['url'] = $apisJSONAPIPostmanURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Registration URL
-    if($apisJSONAPIRegistrationURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-registration";
-        $APIPropertyArray['url'] = $apisJSONAPIRegistrationURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Documentation URL
-    if($apisJSONAPIDocumentationURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-documentation";
-        $APIPropertyArray['url'] = $apisJSONAPIDocumentationURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Pricing URL
-    if($apisJSONAPIPricingURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "Pricing";
-        $APIPropertyArray['url'] = $apisJSONAPIPricingURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Terms of Service URL
-    if($apisJSONAPITermsOfServiceURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "TermsOfService";
-        $APIPropertyArray['url'] = $apisJSONAPITermsOfServiceURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Github URL
-    if($apisJSONAPIGithubURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-github";
-        $APIPropertyArray['url'] = $apisJSONAPIGithubURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // Twitter URL
-    if($apisJSONAPITwitterURL!='')
-        {
-        $APIPropertyArray = {};
-        $APIPropertyArray['type'] = "X-twitter";
-        $APIPropertyArray['url'] = $apisJSONAPITwitterURL;
-        $APIArray['properties'].push($APIPropertyArray);
-        }
-
-    // API Tags
-    if($apisJSONAPITags!='')
-        {
-        $APIArray['tags'] = {};
-        $APIArray['tags'] = $apisJSONAPITagArray;
-        }
-
-    $APIArray['contact'] = $ContactArray;
-    $MasterAPISJSON['apis'].push($APIArray);
-    $MasterAPISJSON['include'] = [];
-    $MasterAPISJSON['maintainers'] =  $ContactArray;
-    $MasterAPISJSON['url'] = $apisJSONUrl;
-
-    // Publish to Viewer
-    $viewer = JSON.stringify($MasterAPISJSON, null, 4);
-    document.getElementById("jsonViewerDetails").value = $viewer;
-    document.getElementById("jsonViewerDetails").style.display = '';
-
-    // Show the Modal
-    $('#apisJSONModal').modal('show');
-    }
-
+                          if($apiPropertyValue['type']=='x-openapi-spec-json')
+                            {
+                            var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
+                              })
+                              .done(function($openapispec) {
+                                  var options = {
+                                    author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                                    committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                                    encode: true
+                                  }
+                                  $fileArray = $apiPropertyValue['url'].split('/');
+                                  $file_path = $fileArray[$fileArray.length-1];
+                                  $write_spec_path = $folder_name + "/" + $file_path;
+                                  try {
+                                      $html = '<li><strong>Writing to</strong> /' + $write_spec_path + "...</li>";
+                                      $('#'+$slug).append($html);
+                                      repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
+                                  }
+                                  catch(err) {
+                                      console.log("error!");
+                                  }
+                                })
+                              .fail(function() {
+                              });
+                            }
+                        });
+                    });
+                  }
+                $treeCount++;
+              });
+            });
+          });
+        });
+      });
 </script>
-<p><br /></p>
-<p>This application runs as a micro tool, which operates 100% client-side, running completely on a Jekyll website, hosted using Github, and Github pages. Visit the about page for more information, if you'd like to support this work feel free to invest and done. If you have any issues, or would like to leave a comment, you can do so via <a href="https://github.com/api-evangelist-tools/create-your-first-apis-json-file/issues">the project's Github repository</a>.</p>
-<div class="modal fade" id="apisJSONModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Here Is Your APIs.json File</h4>
-      </div>
-      <div class="modal-body">
-        <textarea id="jsonViewerDetails" rows="10" style="border: 0px solid #FFF; width: 500px; height: 100%; display: none;"></textarea>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+<h3>Pull Subscriptions</h3>
+<p>This is a tool for pulling the OpenAPI Spec files that are indexed in any of the APIs.json indexed within the APIs.json file for this subscription repo.</p>
+<p>It loops through any APIs.json added to the include collection, loops through each APIs.json, adds a folder to the master branch for this repo, and publishes a copy of the APIs.json, and any OpenAPI Specs to the folder.</p>
+<p>A valid OAuth token is required to be passed in using the query variable "token", from a user account with write access to the repo, otherwise the subscriptions will not be written.</p>
+<ul id="process-subscriptions"></ul>
+<p>This is one of my micro tools I am evolving to help me manage a large number of OpenAPI Specifications, that are indexed via APIs.json files in my <a href="http://theapistack.com">API Stack work</a>. My goal is to make a forkable set of tools, that can be used to stay subscribed to the changes occurring to APIs that are indexed via APIs.json files.</p>
