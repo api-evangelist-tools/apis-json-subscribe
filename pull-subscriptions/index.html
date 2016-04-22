@@ -62,13 +62,14 @@ title: Pull Subscriptions
           if($createfolder == 1)
             {
             var options = {
-              author: {name: 'API Evangelist', email: 'kinlane@gmail.com'},
-              committer: {name: 'API Evangelist', email: 'kinlane@gmail.com'},
+              author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+              committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
               encode: true
             }
             $apisjson2_content = JSON.stringify($apisjson2, null, 4);
             console.log($apis_json_path);
-            //repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+            console.log($apisjson2_content);
+            repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
             }
 
             $apis = $apisjson2['apis'];
