@@ -70,7 +70,7 @@ title: Pull Subscriptions
                 }
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    $html = '<li>Writing ' + $apis_json_path + "</li>";
+                    $html = '<li>Writing to /' + $apis_json_path + "</li>";
                     $('#'+$slug).append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
@@ -88,7 +88,7 @@ title: Pull Subscriptions
                 $apis_json_path = $folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    $html = '<li>Writing ' + $apis_json_path + "</li>";
+                    $html = '<li>Writing to /' + $apis_json_path + "</li>";
                     $('#'+$slug).append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
@@ -119,7 +119,7 @@ title: Pull Subscriptions
                                   $file_path = $fileArray[$fileArray.length-1];
                                   $write_spec_path = $folder_name + "/" + $file_path;
                                   try {
-                                      $html = '<li>Writing ' + $write_spec_path + "</li>";
+                                      $html = '<li>Writing to /' + $write_spec_path + "</li>";
                                       $('#'+$slug).append($html);
                                       repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
                                   }
