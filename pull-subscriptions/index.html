@@ -57,7 +57,6 @@ title: Pull Subscriptions
                 {
                 console.log($apis_json_path + ' == ' + $path);
                 $createfolder = 0;
-                $treeCount++;
                 }
 
                 console.log("count:" + $treeCount);
@@ -73,7 +72,7 @@ title: Pull Subscriptions
                   console.log($apis_json_path);
                   repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                   }
-
+                $treeCount++;
               });
             });
 
