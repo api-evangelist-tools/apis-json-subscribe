@@ -48,7 +48,6 @@ title: Pull Subscriptions
 
             $treeLength = tree.length;
             $treeCount = 0;
-            console.log("New: " + $treeLength);
             $.each(tree, function(treeKey, treeValue) {
 
               $path = treeValue['path'];
@@ -61,21 +60,22 @@ title: Pull Subscriptions
                 $treeCount++;
                 }
 
+                console.log("count:" + $treeCount);
+                console.log("length:" + $treeLength);
+                if($createfolder == 1)
+                  {
+                  var options = {
+                    author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                    committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                    encode: true
+                  }
+                  $apisjson2_content = JSON.stringify($apisjson2, null, 4);
+                  console.log($apis_json_path);
+                  repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                  }
+
               });
             });
-          console.log("count:" + $treeCount);
-          console.log("length:" + $treeLength);
-          if($createfolder == 1)
-            {
-            var options = {
-              author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
-              committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
-              encode: true
-            }
-            $apisjson2_content = JSON.stringify($apisjson2, null, 4);
-            console.log($apis_json_path);
-            repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
-            }
 
             $apis = $apisjson2['apis'];
             //console.log($apisjson2);
