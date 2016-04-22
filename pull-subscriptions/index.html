@@ -27,15 +27,21 @@ title: Pull Subscriptions
 
       $.each($subscription_include, function($key,$value) {
         //console.log($value);
-        $entry_type = $value['type'];
+        $entry_name = $value['name'];
         $entry_url = $value['url'];
 
-        console.log($entry_type);
+        console.log($entry_name);
 
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
-            console.log($apisjson2);
+            $apis = apisjson2['apis'];
+            //console.log($apisjson2);
 
+            $.each($apis, function($apiKey,$apiValue) {
+
+                console.log($apiValue);
+
+              });
           });
 
         });
