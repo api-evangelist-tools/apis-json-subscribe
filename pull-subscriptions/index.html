@@ -47,6 +47,8 @@ title: Pull Subscriptions
 
           repo.getTree('master?recursive=true', function(err, tree) {
 
+            console.log("Path3: " + $apis_json_path);
+
             $treeLength = tree.length;
             $treeCount = 1;
             $createfolder = 1;
