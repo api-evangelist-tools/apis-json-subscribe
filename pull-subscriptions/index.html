@@ -43,11 +43,11 @@ title: Pull Subscriptions
           var github = new Github({token: $oAuth_Token,auth: "oauth"});
           var repo = github.getRepo($org,$repo);
 
-          $createfolder = 1;
           repo.getTree('master?recursive=true', function(err, tree) {
 
             $treeLength = tree.length;
             $treeCount = 1;
+            $createfolder = 1;
             $.each(tree, function(treeKey, treeValue) {
 
               $path = treeValue['path'];
@@ -55,7 +55,7 @@ title: Pull Subscriptions
               //console.log($apis_json_path + ' == ' + $path);
               if($apis_json_path == $path)
                 {
-                console.log($apis_json_path + ' == ' + $path);
+                console.log($apis_json_path + ' already exists!');
                 $createfolder = 0;
                 }
 
