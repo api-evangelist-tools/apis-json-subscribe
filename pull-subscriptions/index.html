@@ -36,22 +36,20 @@ title: Pull Subscriptions
         var $folder_name = $folder_name.toLowerCase();
         var $apis_json_path = $folder_name + '/apis.json';
 
-        console.log("Path1: " + $apis_json_path);
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
           //console.log($oAuth_Token);
           var github = new Github({token: $oAuth_Token,auth: "oauth"});
           var repo = github.getRepo($org,$repo);
 
-          console.log("Path2: " + $apis_json_path);
+          $apis = $apisjson2['apis'];
 
           repo.getTree('master?recursive=true', function(err, tree) {
-
-            console.log("Path3: " + $apis_json_path);
 
             $treeLength = tree.length;
             $treeCount = 1;
             $createfolder = 1;
+            $pullapis = 0;
             $.each(tree, function(treeKey, treeValue) {
 
               $path = treeValue['path'];
@@ -69,35 +67,42 @@ title: Pull Subscriptions
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 $createfolder = 1;
+                $pullapis = 1;
                 }
               else if($createfolder == 0 && $treeCount == $treeLength)
                 {
                 d = new Date();
                 $date_folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
-                var $apis_json_new_path = $folder_name + '/' + $date_folder + '/apis.json';
+                var $apis_json_path = $folder_name + '/' + $date_folder + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
-                repo.write('master',$apis_json_new_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 $createfolder = 1;
+                $pullapis = 1;
                 }
+
+                if($pullapis == 1)
+                  {
+                  $.each($apis, function($apiKey,$apiValue) {
+
+                      $api_properties = $apiValue['properties'];
+                      //console.log($api_properties);
+
+                      $.each($api_properties, function($apiPropertyKey,$apiPropertyValue) {
+
+                          $type = $apiPropertyValue['type'];
+                          $url = $apiPropertyValue['url'];
+                          console.log($type + ' - ' + $url);
+
+                        });
+
+                    });
+                  }
                 $treeCount++;
               });
             });
 
-            $apis = $apisjson2['apis'];
-            //console.log($apisjson2);
 
-            $.each($apis, function($apiKey,$apiValue) {
 
-                $api_properties = $apiValue['properties'];
-                //console.log($api_properties);
-
-                $.each($api_properties, function($apiPropertyKey,$apiPropertyValue) {
-
-                    //console.log($apiPropertyValue);
-
-                  });
-
-              });
           });
 
         });
