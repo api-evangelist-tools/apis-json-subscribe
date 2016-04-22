@@ -5,7 +5,11 @@ title: Pull Subscriptions
 
 <script type="text/javascript">
 
-    var $oAuth_Token = getUrlVar('token');
+    if(getUrlVar('token'))
+      {
+        var $oAuth_Token = getUrlVar('token');
+      }
+      
     var $org = 'api-evangelist-tools';
     var $repo = 'apis-json-subscribe';
 
