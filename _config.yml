@@ -1,5 +1,5 @@
 title:        APIs.json Subscribe
-url:          http://create.your.first.apis.json.file.tools.apievangelist.com
+url:          http://apis.json.subscribe.apievangelist.com
 logo:         http://kinlane-productions.s3.amazonaws.com/api-evangelist/api-evangelist-logo-400.png
 logo_width:   80
 logo_bottom_padding: 10
@@ -23,7 +23,7 @@ org: api-evangelist-tools
 repo: apis-json-subscribe
 
 # Masthead title
-masthead_link: http://create.your.first.apis.json.file.tools.apievangelist.com
+masthead_link: http://apis.json.subscribe.apievangelist.com
 masthead_font_size: 65
 masthead_title: '{"APIs.json Subscribe"}'
 
