@@ -1,0 +1,34 @@
+---
+layout: page
+title: Pull Subscriptions
+---
+
+<script type="text/javascript">
+
+    var $oAuth_Token = getUrlVar('token');
+    var $org = 'api-evangelist-tools';
+    var $repo = 'apis-json-subscribe';
+
+    var $masterFeed = [];
+
+    $feedurls = 'http://apis.json.subscribe.apievangelist.com/apis.json';
+
+    var allFeeds = $.get($feedurls, function (feeds) {
+
+      $APIsJSON = JSON.parse(feeds);
+
+      console.log(APIsJSON);
+
+      })
+      .done(function() {
+          console.log("SUCESS");
+        })
+      .fail(function() {
+        console.log("NO GO AT ALL!");
+      });
+
+</script>
+
+<h3>Pull Feeds</h3>
+<p>This pulls the feeds from any urls listed in the <a href="">_data/feed-urls.json</a> file, which contains all the target RSS locations we are looking to aggregate.</p>
+<ul id="process-feeds"></ul>

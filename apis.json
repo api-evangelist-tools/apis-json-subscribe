@@ -1,0 +1,35 @@
+{
+	"name": "Subscribe",
+	"description": "This is an API subscription tool.",
+	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-stacks.png",
+	"created": "2016-04-19",
+	"modified": "2016-04-19",
+	"url": "http://theapistack.com/apis.json",
+	"specificationVersion": "0.14",
+	"apis": [
+	],
+	"tags": [
+		"APIs.json Subscription"
+	],
+	"include": [
+		{
+			"name": "3scale",
+			"url": "http://theapistack.com/data/3scale/apis.json"
+		},
+		{
+			"name": "AlchemyAPI",
+			"url": "http://theapistack.com/data/alchemyapi/apis.json"
+		},
+		{
+			"name": "AngelList",
+			"url": "http://theapistack.com/data/angellist/apis.json"
+		}
+	],
+	"maintainers": [
+		{
+			"FN": "Kin",
+			"x-twitter": "apievangelist",
+			"email": "info@apievangelist.com"
+		}
+	]
+}

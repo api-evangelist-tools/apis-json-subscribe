@@ -1,0 +1,48 @@
+---
+layout: page
+title: List URLs
+redirect_from: "/rss-aggregator/list-urls.html"
+---
+
+<script type="text/javascript">
+
+    var $feedName = "";
+    var $feedURL = "";
+
+    // RAW is only way we can get at _data
+    $feedurls = 'https://raw.githubusercontent.com/indieedtech/rss-aggregator/gh-pages/_data/feed-urls.json';
+
+    $.get($feedurls, function (feeds) {
+
+      $feedsJSON = JSON.parse(feeds);
+
+      $.each($feedsJSON, function(feedKey, feedEntry) {
+
+        $feedURL = feedEntry['url'];
+
+        var jqxhr = $.get($feedURL, function() {
+
+          $feedName = feedEntry['name'];
+          $feedURL = feedEntry['url'];
+
+          $feedItem = '<li><strong>' + $feedName + '</strong> - <a href="' + $feedURL + '" target="_blank">' + $feedURL + '</a> (<i>success</i>)</li>';
+          $('#url-list').append($feedItem);
+
+        })
+        .fail(function() {
+
+          $feedName = feedEntry['name'];
+          $feedURL = feedEntry['url'];
+
+          $feedItem = '<li><strong>' + $feedName + '</strong> - <a href="' + $feedURL + '" target="_blank">' + $feedURL + '</a> (<i>failed - No Access-Control-Allow-Origin</i>)</li>';
+          $('#url-list').append($feedItem);
+
+        });
+
+        });
+      });
+
+</script>
+<h3>Lists All The URLs</h3>
+<p>These are URLs for the RSS feeds that are included within this aggregate site, and pulled using the aggregator url.</p>
+<ul id="url-list"></ul>

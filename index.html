@@ -1,57 +1,354 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Apis-json-subscribe by api-evangelist-tools</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Apis-json-subscribe</h1>
-      <h2 class="project-tagline">This is a micro tool for subscribing to APIs.json feeds.</h2>
-      <a href="https://github.com/api-evangelist-tools/apis-json-subscribe" class="btn">View on GitHub</a>
-      <a href="https://github.com/api-evangelist-tools/apis-json-subscribe/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/api-evangelist-tools/apis-json-subscribe/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+---
+layout: page
+title: Create Your First APIs.json File
+---
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<h3>Create Your First APIs.json File</h3>
+<p>This is a form to walk you through building your first <a href="http://apis.json.org/" target="_blank">APIs.json file</a> index for your API, providing machine readable access to your API, as and the supporting platform operations. Just fill out the fields below, and click on the "Generate My APIs.json" button to generate the APIs.json.</p>
+<p>Once done, you can copy / paste the APIs.json file and publish into the root of your website, and developer portal. This allows <a href="http://apis.io/">search engines like APIs.io</a> index your API, while still allowing you to control what goes into each APIs index, including documentation, pricing, terms of service, an dother critical aspecs of API operations.
+<style>
+    input[type=text] {
+     width: 100%;
+     padding: 15px 8px 15px 8px;
+    }
+    input[type=email] {
+     width: 100%;
+     padding: 15px 8px 15px 8px;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+    }
+</style>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+<form method="get" action="add.php">
+<h4>Company Overview</h4>
+  <div class="form-group">
+    <label for="name">What is the name of your company, organization, or operations?:</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Name of your API">
+  </div>
+  <div class="form-group">
+    <label for="description">Please provide a short description of your company, organization, or operations -- keep to less than 500 characters.</label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="image">What is the url to your logo or image?</label>
+    <input type="text" class="form-control" id="image" name="image" placeholder="http://example.com/logo.png">
+  </div>
+  <div class="form-group">
+    <label for="tags">What are some key words and phrases that description your company, organization, or operations? Separate with commas.</label>
+    <input type="text" class="form-control" id="tags" name="tags" placeholder="key words, key phrases, tags">
+  </div>
+  <div class="form-group">
+    <label for="tax_status">What is the url for your company, organization, or operations?</label>
+    <input type="text" class="form-control" id="url" name="url" placeholder="http://example.com/apis.json">
+  </div>
+  <h4>API Overview</h4>
+  <div class="form-group">
+    <label for="api-name">What is the name of your API?:</label>
+    <input type="text" class="form-control" id="api-name" name="api-name" placeholder="Name of your API">
+  </div>
+  <div class="form-group">
+    <label for="api-description">Please provide a short description of your API, and what it does -- keep to less than 500 characters.</label>
+    <textarea class="form-control" id="api-description" name="api-description" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="api-image">Is there a logo, image or icon that represents your API?</label>
+    <input type="text" class="form-control" id="api-image" name="api-image" placeholder="http://example.com/logo.png">
+  </div>
+  <div class="form-group">
+    <label for="api-tags">What are some key words and phrases that description your API? Separate with commas.</label>
+    <input type="text" class="form-control" id="api-tags" name="api-tags" placeholder="key words, key phrases, tags">
+  </div>
+  <h4>API Details</h4>
+  <div class="form-group">
+    <label for="api-base-url">What is the base url for the API?:</label>
+    <input type="text" class="form-control" id="api-base-url" name="api-base-url" placeholder="http://api.example.com">
+  </div>
+  <div class="form-group">
+    <label for="api-openapi-spec-url">Is there a URL for the OpenAPI Specification for the API?:</label>
+    <input type="text" class="form-control" id="api-openapi-spec-url" name="api-openapi-spec-url" placeholder="http://example.com/openapi-spec.json">
+  </div>
+  <div class="form-group">
+    <label for="api-api-blueprint-url">Is there a URL for the API Blueprint for the API?:</label>
+    <input type="text" class="form-control" id="api-api-blueprint-url" name="api-api-blueprint-url" placeholder="http://example.com/api-blueprint.apib">
+  </div>
+  <div class="form-group">
+    <label for="api-postman-url">Is there a URL for the Postman Collection URL for the API?:</label>
+    <input type="text" class="form-control" id="api-postman-url" name="api-postman-url" placeholder="http://example.com/postman.json">
+  </div>
+  <h4>API Operations</h4>
+  <div class="form-group">
+    <label for="api-developer-portal">Where is the developer portal for the API?:</label>
+    <input type="text" class="form-control" id="api-developer-portal" name="api-developer-portal" placeholder="http://developer.example.com">
+  </div>
+  <div class="form-group">
+    <label for="api-registration">Where do you register for an API?:</label>
+    <input type="text" class="form-control" id="api-registration" name="api-registration" placeholder="http://example.com/registration/">
+  </div>
+  <div class="form-group">
+    <label for="api-documentation">Where is the documentation for an API?:</label>
+    <input type="text" class="form-control" id="api-documentation" name="api-documentation" placeholder="http://example.com/documentation/">
+  </div>
+  <div class="form-group">
+    <label for="api-pricing">Where is the pricing and plans for an API?:</label>
+    <input type="text" class="form-control" id="api-pricing" name="api-pricing" placeholder="http://example.com/pricing/">
+  </div>
+  <div class="form-group">
+    <label for="api-terms-of-service">Where is the terms of service for an API?:</label>
+    <input type="text" class="form-control" id="api-terms-of-service" name="api-terms-of-service" placeholder="http://example.com/terms-of-service/">
+  </div>
+  <div class="form-group">
+    <label for="api-github">Is there a Github account for an API?:</label>
+    <input type="text" class="form-control" id="api-github" name="api-github" placeholder="https://github.com/yourapi/">
+  </div>
+  <div class="form-group">
+    <label for="api-twitter">Is there a Twitter account for an API?:</label>
+    <input type="text" class="form-control" id="api-twitter" name="api-twitter" placeholder="https://twitter.com/yourapi/">
+  </div>
+  <h4>Contact Information</h4>
+  <div class="form-group">
+    <label for="contact-name">What is the name of point of contact for the API?:</label>
+    <input type="text" class="form-control" id="contact-name" name="contact-name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="contact-twitter">What is the Twitter handle for point of contact for the API?:</label>
+    <input type="text" class="form-control" id="contact-twitter" name="contact-twitter" placeholder="twitterhandle">
+  </div>
+  <div class="form-group">
+    <label for="contact-email">What is the email of the point of contact for the API?:</label>
+    <input type="email" class="form-control" id="contact-email" name="contact-email" placeholder="name@example.com">
+  </div>
+</form>
+<button onclick="BuildAPIsJSON();" type="submit" class="btn btn-default" name="add-organization" value="1">Generate My APIs.json</button>
+<br />
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+<script type="text/jscript">
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+//
+// This is meant to be a very verbose, hackable script that you can change and make yours.
+// Do what you need to make it create exactly the APIs.json file you will need for your platform.
+//
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+function BuildAPIsJSON()
+    {
+    $MasterAPISJSON = {};
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+    $apisJSONName = document.getElementById("name").value;
+    $apisJSONDescription = document.getElementById("description").value;
+    $apisJSONImage = document.getElementById("image").value;
+    $apisJSONTags = document.getElementById("tags").value;
+    $apisJSONTagArray = $apisJSONTags.split(',');
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+    $apisJSONUrl = document.getElementById("url").value;
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+    $apisJSONAPIName = document.getElementById("api-name").value;
+    $apisJSONAPIDescription = document.getElementById("api-description").value;
+    $apisJSONAPIImage = document.getElementById("api-image").value;
+    $apisJSONAPITags = document.getElementById("api-tags").value;
+    $apisJSONAPITagArray = $apisJSONAPITags.split(',');
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+    $apisJSONAPIOpenAPIBaseURL = document.getElementById("api-base-url").value;
+    $apisJSONAPIOpenAPISpecURL = document.getElementById("api-openapi-spec-url").value;
+    $apisJSONAPIAPIBlueprintURL = document.getElementById("api-api-blueprint-url").value;
+    $apisJSONAPIPostmanURL = document.getElementById("api-postman-url").value;
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+    $apisJSONAPIPortalURL = document.getElementById("api-developer-portal").value;
+    $apisJSONAPIRegistrationURL = document.getElementById("api-registration").value;
+    $apisJSONAPIDocumentationURL = document.getElementById("api-documentation").value;
+    $apisJSONAPIPricingURL = document.getElementById("api-pricing").value;
+    $apisJSONAPITermsOfServiceURL = document.getElementById("api-terms-of-service").value;
+    $apisJSONAPIGithubURL = document.getElementById("api-github").value;
+    $apisJSONAPITwitterURL = document.getElementById("api-twitter").value;
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/api-evangelist-tools/apis-json-subscribe">Apis-json-subscribe</a> is maintained by <a href="https://github.com/api-evangelist-tools">api-evangelist-tools</a>.</span>
+    $apisJSONContactName = document.getElementById("contact-name").value;
+    $apisJSONContactTwitter = document.getElementById("contact-twitter").value;
+    $apisJSONContactEmail = document.getElementById("contact-email").value;
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+    $MasterAPISJSON['name'] = $apisJSONName;
 
-    </section>
+    // description
+    if($apisJSONDescription!='')
+        {
+        $MasterAPISJSON['description'] = $apisJSONDescription;
+        }
 
-  
-  </body>
-</html>
+    // image
+    if($apisJSONImage!='')
+        {
+        $MasterAPISJSON['image'] = $apisJSONImage;
+        }
+
+    // tags
+    if($apisJSONTags!='')
+        {
+        $MasterAPISJSON['tags'] = {};
+        $MasterAPISJSON['tags'] = $apisJSONTagArray;
+        }
+
+    $MasterAPISJSON['url'] = $apisJSONUrl;
+
+    var date = new Date();
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    // Set the dates
+    if(monthIndex<10){ monthIndex = '0' + monthIndex; }
+    $created_date = year  + '-' + monthIndex + '-' + day;
+    $MasterAPISJSON['created'] = $created_date;
+    $MasterAPISJSON['modified'] = $created_date;
+
+    $MasterAPISJSON['specificationVersion'] = '0.14';
+
+    $MasterAPISJSON['apis'] = [];
+
+    // Build a contact array
+    $ContactArray = {};
+    $ContactArray['FN'] = $apisJSONAPIName;
+    $ContactArray['X-twitter'] = $apisJSONAPIName;
+    $ContactArray['email'] = $apisJSONAPIName;
+
+    $APIArray = {};
+    $APIArray['name'] = $apisJSONAPIName;
+
+    // API description
+    if($apisJSONAPIDescription!='')
+        {
+        $APIArray['description'] = $apisJSONAPIDescription;
+        }
+
+    $APIArray['image'] = $apisJSONAPIImage;
+    $APIArray['humanURL'] = $apisJSONAPIPortalURL;
+    $APIArray['baseURL'] = $apisJSONAPIOpenAPIBaseURL;
+
+    // API Tags
+    if($apisJSONAPITagArray!='')
+        {
+        $APIArray['tags'] = $apisJSONAPITagArray;
+        }
+
+    $APIArray['properties'] = [];
+
+    // OpenAPI Spec
+    if($apisJSONAPIOpenAPISpecURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-openapi-spec";
+        $APIPropertyArray['url'] = $apisJSONAPIOpenAPISpecURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // API Blueprint
+    if($apisJSONAPIAPIBlueprintURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-api-blueprint";
+        $APIPropertyArray['url'] = $apisJSONAPIAPIBlueprintURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Postman Collection
+    if($apisJSONAPIPostmanURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-postman-collection";
+        $APIPropertyArray['url'] = $apisJSONAPIPostmanURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Registration URL
+    if($apisJSONAPIRegistrationURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-registration";
+        $APIPropertyArray['url'] = $apisJSONAPIRegistrationURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Documentation URL
+    if($apisJSONAPIDocumentationURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-documentation";
+        $APIPropertyArray['url'] = $apisJSONAPIDocumentationURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Pricing URL
+    if($apisJSONAPIPricingURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "Pricing";
+        $APIPropertyArray['url'] = $apisJSONAPIPricingURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Terms of Service URL
+    if($apisJSONAPITermsOfServiceURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "TermsOfService";
+        $APIPropertyArray['url'] = $apisJSONAPITermsOfServiceURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Github URL
+    if($apisJSONAPIGithubURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-github";
+        $APIPropertyArray['url'] = $apisJSONAPIGithubURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // Twitter URL
+    if($apisJSONAPITwitterURL!='')
+        {
+        $APIPropertyArray = {};
+        $APIPropertyArray['type'] = "X-twitter";
+        $APIPropertyArray['url'] = $apisJSONAPITwitterURL;
+        $APIArray['properties'].push($APIPropertyArray);
+        }
+
+    // API Tags
+    if($apisJSONAPITags!='')
+        {
+        $APIArray['tags'] = {};
+        $APIArray['tags'] = $apisJSONAPITagArray;
+        }
+
+    $APIArray['contact'] = $ContactArray;
+    $MasterAPISJSON['apis'].push($APIArray);
+    $MasterAPISJSON['include'] = [];
+    $MasterAPISJSON['maintainers'] =  $ContactArray;
+    $MasterAPISJSON['url'] = $apisJSONUrl;
+
+    // Publish to Viewer
+    $viewer = JSON.stringify($MasterAPISJSON, null, 4);
+    document.getElementById("jsonViewerDetails").value = $viewer;
+    document.getElementById("jsonViewerDetails").style.display = '';
+
+    // Show the Modal
+    $('#apisJSONModal').modal('show');
+    }
+
+</script>
+<p><br /></p>
+<p>This application runs as a micro tool, which operates 100% client-side, running completely on a Jekyll website, hosted using Github, and Github pages. Visit the about page for more information, if you'd like to support this work feel free to invest and done. If you have any issues, or would like to leave a comment, you can do so via <a href="https://github.com/api-evangelist-tools/create-your-first-apis-json-file/issues">the project's Github repository</a>.</p>
+<div class="modal fade" id="apisJSONModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Here Is Your APIs.json File</h4>
+      </div>
+      <div class="modal-body">
+        <textarea id="jsonViewerDetails" rows="10" style="border: 0px solid #FFF; width: 500px; height: 100%; display: none;"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default center-block" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
