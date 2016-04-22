@@ -99,7 +99,12 @@ title: Pull Subscriptions
                             //console.log("pulling: " + $apiPropertyValue['url']);
 
                             var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
-                              console.log("2) " + $write_spec_path)
+                              console.log("2) " + $write_spec_path);
+                              var options = {
+                                author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                                committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                                encode: true
+                              }
                               repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
                               });
 
