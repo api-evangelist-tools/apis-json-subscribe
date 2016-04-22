@@ -33,6 +33,7 @@ title: Pull Subscriptions
         console.log($entry_name);
 
         $folder_name = $entry_name.split(' ').join('_');
+        $folder_name = $folder_name.toLowerCase();
         $apis_json_path = $folder_name + '/apis.json';
         console.log($apis_json_path);
 
