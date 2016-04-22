@@ -25,10 +25,10 @@ title: Pull Subscriptions
 
       console.log($subscription_name);
 
-      $.each($subscription_include, function($entry) {
-        console.log($entry);
-        $entry_type = $entry['type'];
-        $entry_url = $entry['url'];
+      $.each($subscription_include, function($key,$value) {
+        console.log($value);
+        $entry_type = $value['type'];
+        $entry_url = $value['url'];
 
         console.log($entry_type);
 
