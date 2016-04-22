@@ -9,17 +9,30 @@ title: Pull Subscriptions
       {
         var $oAuth_Token = getUrlVar('token');
       }
-      
+
     var $org = 'api-evangelist-tools';
     var $repo = 'apis-json-subscribe';
 
     var $masterFeed = [];
 
-    $feedurls = 'http://apis.json.subscribe.apievangelist.com/apis.json';
+    $apis_json_url = 'http://apis.json.subscribe.apievangelist.com/apis.json';
 
-    var allFeeds = $.get($feedurls, function (feeds) {
+    var allFeeds = $.get($apis_json_url, function ($apisjson) {
 
-console.log(feeds);
+      $subscription_name = apisjson['name'];
+      $subscription_description = apisjson['description'];
+      subscription_include = apisjson['include'];
+      
+      console.log(subscription_name);
+
+      $.each($subscription_include, function($entry) {
+
+        $entry_type = entry['type'];
+        $entry_url = entry['url'];
+
+        console.log(entry_type);
+
+        });
 
       });
 
