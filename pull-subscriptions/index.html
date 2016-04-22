@@ -66,7 +66,6 @@ title: Pull Subscriptions
                   committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
                   encode: true
                 }
-
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
@@ -77,6 +76,7 @@ title: Pull Subscriptions
                 $date_folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
                 var $apis_json_new_path = $folder_name + '/' + $date_folder + '/apis.json';
                 console.log($apis_json_new_path);
+                $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 repo.write('master',$apis_json_new_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 $treeCount++;
