@@ -66,7 +66,7 @@ title: Pull Subscriptions
                 try {
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
-                catch(err) {
+                catch() {
                     console.log("error!");
                 }
                 $createfolder = 1;
@@ -82,7 +82,7 @@ title: Pull Subscriptions
                 try {
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
-                catch(err) {
+                catch() {
                     console.log("error!");
                 }
                 $createfolder = 1;
@@ -111,7 +111,7 @@ title: Pull Subscriptions
                                   try {
                                       repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
                                   }
-                                  catch(err) {
+                                  catch() {
                                       console.log("error!");
                                   }
                                 })
