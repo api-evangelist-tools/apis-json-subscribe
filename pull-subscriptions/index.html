@@ -62,7 +62,7 @@ title: Pull Subscriptions
                 console.log($apis_json_path + ' already exists!');
                 $createfolder = 0;
                 }
-              console.log($createfolder + ' && ' + $treeCount + ' && ' + $treeLength);  
+              console.log($createfolder + ' && ' + $treeCount + ' == ' + $treeLength);
               if($createfolder == 1 && $treeCount == $treeLength)
                 {
                 var options = {
@@ -75,8 +75,8 @@ title: Pull Subscriptions
                 //console.log($apis_json_path);
                 repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
 
-                $treeCount++;
                 }
+                $treeCount++;
               });
             });
 
