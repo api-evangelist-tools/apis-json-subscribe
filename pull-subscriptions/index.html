@@ -33,7 +33,7 @@ title: Pull Subscriptions
         console.log($entry_name);
 
         $folder_name = $entry_name.split(' ').join('_');
-        $apis_json_path = folder_name + '/apis.json';
+        $apis_json_path = $folder_name + '/apis.json';
         console.log($apis_json_path);
 
         var github = new Github({token: $oAuth_Token,auth: "oauth"});
