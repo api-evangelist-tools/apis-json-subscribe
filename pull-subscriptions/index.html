@@ -30,13 +30,6 @@ title: Pull Subscriptions
         $entry_name = $value['name'];
         $entry_url = $value['url'];
 
-        console.log($entry_name);
-
-        $folder_name = $entry_name.split(' ').join('_');
-        $folder_name = $folder_name.toLowerCase();
-        $apis_json_path = $folder_name + '/apis.json';
-        //console.log($apis_json_path);
-
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
           //console.log($oAuth_Token);
@@ -52,7 +45,15 @@ title: Pull Subscriptions
 
               $path = treeValue['path'];
               $sha = treeValue['sha'];
-              //console.log($apis_json_path + ' == ' + $path);
+
+              console.log($entry_name);
+
+              $folder_name = $entry_name.split(' ').join('_');
+              $folder_name = $folder_name.toLowerCase();
+              $apis_json_path = $folder_name + '/apis.json';
+              //console.log($apis_json_path);
+
+              console.log($apis_json_path + ' == ' + $path);
               if($apis_json_path == $path)
                 {
                 console.log($apis_json_path + ' already exists!');
