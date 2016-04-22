@@ -47,6 +47,7 @@ title: Pull Subscriptions
           repo.getTree('master?recursive=true', function(err, tree) {
 
             $treeLength = tree.length;
+            $treeCount = 0;
             console.log("New: " + $treeLength);
             $.each(tree, function(treeKey, treeValue) {
 
@@ -57,11 +58,13 @@ title: Pull Subscriptions
                 {
                 console.log($apis_json_path + ' == ' + $path);
                 $createfolder = 0;
+                $treeCount++;
                 }
 
               });
             });
-          console.log("WRITE:" + $createfolder);
+          console.log("count:" + $treeCount);
+          console.log("length:" + $treeLength);
           if($createfolder == 1)
             {
             var options = {
