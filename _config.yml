@@ -55,7 +55,7 @@ navigation:
     padding: 0
     decorate: 0
   - label1: Comment / Issues
-    link1: https://github.com/api-evangelist-tools/create-your-first-apis-json-file/issues
+    link1: https://github.com/api-evangelist-tools/apis-json-subscribe/issues
     size1: 70
     extend: 0
     label2:
