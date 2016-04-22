@@ -34,7 +34,7 @@ title: Pull Subscriptions
 
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
-            $apis = apisjson2['apis'];
+            $apis = $apisjson2['apis'];
             //console.log($apisjson2);
 
             $.each($apis, function($apiKey,$apiValue) {
