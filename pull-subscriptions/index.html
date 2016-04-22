@@ -37,25 +37,39 @@ title: Pull Subscriptions
         $apis_json_path = $folder_name + '/apis.json';
         console.log($apis_json_path);
 
-        var github = new Github({token: $oAuth_Token,auth: "oauth"});
-        var repo = github.getRepo($org,$repo);
-
-        repo.getTree('gh-pages?recursive=true', function(err, tree) {
-
-          $.each(tree, function(treeKey, treeValue) {
-
-            $writepath = 'subscriptions/feed-entries.json';
-            $path = treeValue['path'];
-            $sha = treeValue['sha'];
-
-            console.log($apis_json_path + ' == ' + $path);
-
-            });
-          });
-
-        console.log("does it equal?");
-
         var pullSub = $.get($entry_url, function ($apisjson2) {
+
+          var github = new Github({token: $oAuth_Token,auth: "oauth"});
+          var repo = github.getRepo($org,$repo);
+
+          $createfolder = 1;
+          repo.getTree('master?recursive=true', function(err, tree) {
+
+            $.each(tree, function(treeKey, treeValue) {
+
+              $path = treeValue['path'];
+              $sha = treeValue['sha'];
+              //console.log($apis_json_path + ' == ' + $path);
+              if($apis_json_path == $path)
+                {
+                console.log($apis_json_path + ' == ' + $path);
+                $createfolder = 0;
+                }
+              });
+            });
+
+          console.log("does it equal?");
+
+          if($createfolder == 1)
+            {
+            var options = {
+              author: {name: 'API Evangelist', email: 'kinlane@gmail.com'},
+              committer: {name: 'API Evangelist', email: 'kinlane@gmail.com'},
+              encode: true
+            }
+            $apisjson2_content = JSON.stringify($apisjson2, null, 4);
+            repo.write('master', apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+            }
 
             $apis = $apisjson2['apis'];
             //console.log($apisjson2);
