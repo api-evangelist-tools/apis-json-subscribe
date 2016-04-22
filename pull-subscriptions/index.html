@@ -63,7 +63,12 @@ title: Pull Subscriptions
                   encode: true
                 }
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
-                repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                try {
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                }
+                catch(err) {
+                    console.log("error!");
+                }
                 $createfolder = 1;
                 $pullapis = 1;
                 }
