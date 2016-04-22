@@ -23,14 +23,14 @@ title: Pull Subscriptions
       $subscription_description = $apisjson['description'];
       $subscription_include = $apisjson['include'];
 
-      console.log(subscription_name);
+      console.log($subscription_name);
 
       $.each($subscription_include, function($entry) {
 
         $entry_type = entry['type'];
         $entry_url = entry['url'];
 
-        console.log(entry_type);
+        console.log($entry_type);
 
         });
 
