@@ -32,6 +32,26 @@ title: Pull Subscriptions
 
         console.log($entry_name);
 
+        $folder_name = = entry_name.split(' ').join('_');
+
+        console.log($folder_name);
+
+        var github = new Github({token: $oAuth_Token,auth: "oauth"});
+        var repo = github.getRepo($org,$repo);
+
+        repo.getTree('gh-pages?recursive=true', function(err, tree) {
+
+          $.each(tree, function(treeKey, treeValue) {
+
+            console.log(treeKey);
+            console.log(treeValue);
+            $writepath = 'subscriptions/feed-entries.json';
+            $path = treeValue['path'];
+            $sha = treeValue['sha'];
+
+            });
+          });
+
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
             $apis = $apisjson2['apis'];
