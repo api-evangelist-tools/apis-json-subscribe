@@ -73,7 +73,8 @@ title: Pull Subscriptions
                 {
                 d = new Date();
                 $date_folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
-                var $apis_json_path = $folder_name + '/' + $date_folder + '/apis.json';
+                $folder_name = $folder_name + '/' + $date_folder;
+                $apis_json_path = folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 $createfolder = 1;
@@ -95,8 +96,10 @@ title: Pull Subscriptions
                             {
                             $fileArray = $url.split('/');
                             $file_path = $fileArray[$fileArray.length-1];
+                            $write_spec_path = $folder_name . "/" . $file_path;
                             console.log($type);
                             console.log($url);
+                            console.log($file_path);
                             console.log($file_path);
                             }
 
