@@ -74,8 +74,10 @@ title: Pull Subscriptions
                 {
                 console.log("Write to new!");
                 d = new Date();
-                $folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
-                console.log($folder);
+                $date_folder = (d.getMonth() + 1) + '-' + d.getDate() + '-' +  d.getFullYear();
+                console.log($date_folder);
+                var $apis_json_new_path = $folder_name + '/' + date_folder + '/apis.json';
+                repo.write('master',$apis_json_new_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 $treeCount++;
               });
