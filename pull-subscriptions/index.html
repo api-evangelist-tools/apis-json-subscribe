@@ -56,13 +56,13 @@ title: Pull Subscriptions
 
               $path = treeValue['path'];
               $sha = treeValue['sha'];
-              console.log("Path4: " + $apis_json_path + ' == ' + $path);
+              //console.log("Path4: " + $apis_json_path + ' == ' + $path);
               if($apis_json_path == $path)
                 {
                 console.log($apis_json_path + ' already exists!');
                 $createfolder = 0;
                 }
-
+              console.log($createfolder + ' && ' + $treeCount + ' && ' + treeLength);  
               if($createfolder == 1 && $treeCount == $treeLength)
                 {
                 var options = {
