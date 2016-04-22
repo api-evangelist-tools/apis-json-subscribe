@@ -80,7 +80,7 @@ title: Pull Subscriptions
                 $apis_json_path = $folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    //repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
+                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
                 catch(err) {
                     console.log("error!");
