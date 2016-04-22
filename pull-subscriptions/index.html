@@ -81,8 +81,7 @@ title: Pull Subscriptions
 
                 if($pullapis == 1)
                   {
-                  $apis = $apisjson2['apis'];
-                  $.each($apis, function($apiKey,$apiValue) {
+                  $.each($apisjson2['apis'], function($apiKey,$apiValue) {
 
                       $.each($apiValue['properties'], function($apiPropertyKey,$apiPropertyValue) {
 
@@ -99,10 +98,9 @@ title: Pull Subscriptions
 
                             console.log("pulling: " + $apiPropertyValue['url']);
 
-                            var pullIndividualSpec = $.get($url, function ($openapispec) {
-                              $openapispec_content = JSON.stringify($openapispec, null, 4);
+                            var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
                               console.log("writing: " + $write_spec_path)
-                              repo.write('master',$write_spec_path,$openapispec_content, 'Subscription Pull', options, function(err) {});
+                              repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
                               });
 
                             }
