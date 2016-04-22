@@ -37,6 +37,8 @@ title: Pull Subscriptions
         var $slug = $folder_name;
         var $apis_json_path = $folder_name + '/apis.json';
 
+        $html = '<p><strong>' + $entry_name + '</strong></p>';
+        $('#process-subscriptions').append($html);
         $html = '<ul id="' + $slug + '"></ul>';
         $('#process-subscriptions').append($html);
 
