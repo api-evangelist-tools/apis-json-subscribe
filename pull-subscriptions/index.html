@@ -93,13 +93,13 @@ title: Pull Subscriptions
 
                             //console.log($type);
                             //console.log($url);
-                            console.log($write_spec_path);
+                            console.log("1) " + $write_spec_path);
                             //console.log($file_path);
 
                             //console.log("pulling: " + $apiPropertyValue['url']);
 
                             var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
-                              console.log("writing: " + $write_spec_path)
+                              console.log("2) " + $write_spec_path)
                               repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
                               });
 
