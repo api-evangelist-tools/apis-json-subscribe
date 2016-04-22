@@ -33,8 +33,8 @@ title: Pull Subscriptions
         console.log($entry_name);
 
         $folder_name = $entry_name.split(' ').join('_');
-
-        console.log($folder_name);
+        $apis_json_path = folder_name + '/apis.json';
+        console.log($apis_json_path);
 
         var github = new Github({token: $oAuth_Token,auth: "oauth"});
         var repo = github.getRepo($org,$repo);
@@ -43,14 +43,16 @@ title: Pull Subscriptions
 
           $.each(tree, function(treeKey, treeValue) {
 
-            console.log(treeKey);
-            console.log(treeValue);
             $writepath = 'subscriptions/feed-entries.json';
             $path = treeValue['path'];
             $sha = treeValue['sha'];
 
+            console.log($apis_json_path + ' == ' + $path);
+
             });
           });
+
+        console.log("does it equal?");
 
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
