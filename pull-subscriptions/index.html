@@ -93,10 +93,10 @@ title: Pull Subscriptions
 
                             //console.log($type);
                             //console.log($url);
-                            //console.log($write_spec_path);
+                            console.log($write_spec_path);
                             //console.log($file_path);
 
-                            console.log("pulling: " + $apiPropertyValue['url']);
+                            //console.log("pulling: " + $apiPropertyValue['url']);
 
                             var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
                               console.log("writing: " + $write_spec_path)
