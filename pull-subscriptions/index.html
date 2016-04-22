@@ -39,6 +39,7 @@ title: Pull Subscriptions
 
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
+          console.log($oAuth_Token);
           var github = new Github({token: $oAuth_Token,auth: "oauth"});
           var repo = github.getRepo($org,$repo);
 
@@ -68,7 +69,6 @@ title: Pull Subscriptions
             }
             $apisjson2_content = JSON.stringify($apisjson2, null, 4);
             console.log($apis_json_path);
-            console.log($apisjson2_content);
             repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
             }
 
