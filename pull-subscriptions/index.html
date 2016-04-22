@@ -30,7 +30,7 @@ title: Pull Subscriptions
         $entry_name = $value['name'];
         $entry_url = $value['url'];
 
-        console.log("Entry: " + $entry_name);
+        //console.log("Entry: " + $entry_name);
 
         var $folder_name = $entry_name.split(' ').join('_');
         var $folder_name = $folder_name.toLowerCase();
@@ -64,6 +64,8 @@ title: Pull Subscriptions
                 }
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
+                    $html = '<li>Writing ' + $apis_json_path + "</li>";
+                    $('#process-subscriptions').append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 catch(err) {
@@ -80,6 +82,8 @@ title: Pull Subscriptions
                 $apis_json_path = $folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
+                    $html = '<li>Writing ' + $apis_json_path + "</li>";
+                    $('#process-subscriptions').append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
                 catch(err) {
@@ -109,7 +113,9 @@ title: Pull Subscriptions
                                   $file_path = $fileArray[$fileArray.length-1];
                                   $write_spec_path = $folder_name + "/" + $file_path;
                                   try {
-                                      //repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
+                                      $html = '<li>Writing ' + $write_spec_path + "</li>";
+                                      $('#process-subscriptions').append($html);
+                                      repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
                                   }
                                   catch(err) {
                                       console.log("error!");
@@ -138,6 +144,6 @@ title: Pull Subscriptions
 
 </script>
 
-<h3>Pull Feeds</h3>
-<p>This pulls the feeds from any urls listed in the <a href="">_data/feed-urls.json</a> file, which contains all the target RSS locations we are looking to aggregate.</p>
-<ul id="process-feeds"></ul>
+<h3>Pull Subscriptions</h3>
+<p>Processing any APIs.json files stored in this subscription repository.</p>
+<ul id="process-subscriptions"></ul>
