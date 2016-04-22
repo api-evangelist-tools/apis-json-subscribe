@@ -39,7 +39,14 @@ title: Pull Subscriptions
 
             $.each($apis, function($apiKey,$apiValue) {
 
-                console.log($apiValue);
+                $api_properties = $apiValue['properties'];
+                //console.log($api_properties);
+
+                $.each($api_properties, function($apiPropertyKey,$apiPropertyValue) {
+
+                    console.log($apiPropertyValue);
+
+                  });
 
               });
           });
