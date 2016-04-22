@@ -17,12 +17,12 @@ title: Pull Subscriptions
 
     $apis_json_url = 'http://apis.json.subscribe.apievangelist.com/apis.json';
 
-    var allFeeds = $.get($apis_json_url, function ($apisjson) {
+    var pullMaster = $.get($apis_json_url, function ($apisjson) {
 
-      $subscription_name = apisjson['name'];
-      $subscription_description = apisjson['description'];
-      subscription_include = apisjson['include'];
-      
+      $subscription_name = $apisjson['name'];
+      $subscription_description = $apisjson['description'];
+      $subscription_include = $apisjson['include'];
+
       console.log(subscription_name);
 
       $.each($subscription_include, function($entry) {
