@@ -81,19 +81,14 @@ title: Pull Subscriptions
 
                 if($pullapis == 1)
                   {
-                  $apis = $apisjson2['apis'];  
+                  $apis = $apisjson2['apis'];
                   $.each($apis, function($apiKey,$apiValue) {
 
-                      $api_properties = $apiValue['properties'];
-                      //console.log($api_properties);
+                      $.each($$apiValue['properties'], function($apiPropertyKey,$apiPropertyValue) {
 
-                      $.each($api_properties, function($apiPropertyKey,$apiPropertyValue) {
-
-                          $type = $apiPropertyValue['type'];
-                          $url = $apiPropertyValue['url'];
-                          if($type=='x-openapi-spec-json')
+                          if($$apiPropertyValue['type']=='x-openapi-spec-json')
                             {
-                            $fileArray = $url.split('/');
+                            $fileArray = $apiPropertyValue['url'].split('/');
                             $file_path = $fileArray[$fileArray.length-1];
                             $write_spec_path = $folder_name + "/" + $file_path;
 
@@ -102,7 +97,7 @@ title: Pull Subscriptions
                             //console.log($write_spec_path);
                             //console.log($file_path);
 
-                            console.log("pulling: " + $url);
+                            console.log("pulling: " + $apiPropertyValue['url']);
 
                             var pullIndividualSpec = $.get($url, function ($openapispec) {
                               $openapispec_content = JSON.stringify($openapispec, null, 4);
