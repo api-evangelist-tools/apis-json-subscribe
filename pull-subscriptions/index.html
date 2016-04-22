@@ -88,8 +88,6 @@ title: Pull Subscriptions
                           if($apiPropertyValue['type']=='x-openapi-spec-json')
                             {
                             var pullIndividualSpec = $.get($apiPropertyValue['url'], function ($openapispec) {
-                              console.log("2) " + $write_spec_path);
-
                               })
                               .done(function($openapispec) {
                                   console.log("SUCESS");
