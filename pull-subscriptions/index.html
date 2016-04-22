@@ -40,9 +40,9 @@ title: Pull Subscriptions
 
           //console.log($oAuth_Token);
           var github = new Github({token: $oAuth_Token,auth: "oauth"});
-          var repo = github.getRepo($org,$repo);
+          var $repo = github.getRepo($org,$repo);
 
-          repo.getTree('master?recursive=true', function(err, tree) {
+          $repo.getTree('master?recursive=true', function(err, tree) {
 
             $treeLength = tree.length;
             $treeCount = 1;
@@ -75,7 +75,8 @@ title: Pull Subscriptions
                 $apis_json_path = $folder_name + '/apis.json';
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
-                    repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+                    var $writerepo = github.getRepo($org,$repo);
+                    $writerepo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 catch(err) {
                     console.log("error!");
@@ -104,7 +105,8 @@ title: Pull Subscriptions
                                   $file_path = $fileArray[$fileArray.length-1];
                                   $write_spec_path = $folder_name + "/" + $file_path;
                                   try {
-                                      repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
+                                      var $writerepo = github.getRepo($org,$repo);
+                                      $writerepo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function(err) {});
                                   }
                                   catch(err) {
                                       console.log("error!");
