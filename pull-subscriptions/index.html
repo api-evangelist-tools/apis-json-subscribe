@@ -34,7 +34,11 @@ title: Pull Subscriptions
 
         var $folder_name = $entry_name.split(' ').join('_');
         var $folder_name = $folder_name.toLowerCase();
+        var $slug = $folder_name;
         var $apis_json_path = $folder_name + '/apis.json';
+
+        $html = '<ul id="' + $slug + '"></ul>';
+        $('#process-subscriptions').append($html);
 
         var pullSub = $.get($entry_url, function ($apisjson2) {
 
@@ -65,7 +69,7 @@ title: Pull Subscriptions
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
                     $html = '<li>Writing ' + $apis_json_path + "</li>";
-                    $('#process-subscriptions').append($html);
+                    $('#'+slug).append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
                 }
                 catch(err) {
@@ -83,7 +87,7 @@ title: Pull Subscriptions
                 $apisjson2_content = JSON.stringify($apisjson2, null, 4);
                 try {
                     $html = '<li>Writing ' + $apis_json_path + "</li>";
-                    $('#process-subscriptions').append($html);
+                    $('#'+slug).append($html);
                     repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function() {});
                 }
                 catch(err) {
@@ -114,7 +118,7 @@ title: Pull Subscriptions
                                   $write_spec_path = $folder_name + "/" + $file_path;
                                   try {
                                       $html = '<li>Writing ' + $write_spec_path + "</li>";
-                                      $('#process-subscriptions').append($html);
+                                      $('#'+slug).append($html);
                                       repo.write('master',$write_spec_path,JSON.stringify($openapispec, null, 4), 'Subscription Pull', options, function() {});
                                   }
                                   catch(err) {
