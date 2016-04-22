@@ -19,6 +19,9 @@ paginate_path: "/news/page:num"
 categories_path : /categories.html
 tags_path : /tags.html
 
+org: api-evangelist-tools
+repo: apis-json-subscribe
+
 # Masthead title
 masthead_link: http://create.your.first.apis.json.file.tools.apievangelist.com
 masthead_font_size: 65
