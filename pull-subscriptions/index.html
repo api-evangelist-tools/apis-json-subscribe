@@ -57,18 +57,20 @@ title: Pull Subscriptions
                 {
                 console.log($apis_json_path + ' == ' + $path);
                 $createfolder = 0;
+                }
 
-                if($createfolder == 1 && $treeCount == $treeLength)
-                  {
-                  var options = {
-                    author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
-                    committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
-                    encode: true
-                  }
-                  $apisjson2_content = JSON.stringify($apisjson2, null, 4);
-                  console.log($apis_json_path);
-                  repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
-                  }
+              if($createfolder == 1 && $treeCount == $treeLength)
+                {
+                var options = {
+                  author: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                  committer: {name: 'Kin Lane', email: 'kinlane@gmail.com'},
+                  encode: true
+                }
+                
+                $apisjson2_content = JSON.stringify($apisjson2, null, 4);
+                console.log($apis_json_path);
+                repo.write('master',$apis_json_path,$apisjson2_content, 'Subscription Pull', options, function(err) {});
+
                 $treeCount++;
               });
             });
